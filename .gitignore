@@ -1,6 +1,9 @@
 # Bulk machine outputs kept out of git (see offgit/README.md).
 offgit/
 
+# Local working files (not part of the release).
+/osf/
+
 # Local caches and environments.
 __pycache__/
 *.pyc
@@ -57,6 +60,9 @@ Thumbs.db
 # Private outreach/contact planning.
 /3D_Einstein_Outreach_Consolidated.xlsx
 
+# Local working files (not part of the release).
+/explainers/
+
 # Internal planning / process-narration docs (agent lane mechanics, gate
 # records, model IDs, owner rulings). Kept in the private working tree; excluded
 # from the public release. NOTE: some published files link to these — see report.
@@ -69,3 +75,6 @@ Thumbs.db
 /paper/HANDOFF.md
 /paper/PAPER_PLAN.md
 /paper/COMMUNITY_PAPER_PROFILE.md
+
+# Local working files (not part of the release).
+/journal/
