@@ -4,12 +4,13 @@ the substitution hull?).
 
 Usage: python3 verify/hull/chair44_hull_prune.py [admissible_blocks.json] (output of chair44_vertex_blocks.py).
 
-Let A be the set of 2x2x2 vertex blocks that occur in some tiling by Q. Every tiling T by Q is
-hierarchical: its parent tiling D(T) is again a tiling by Q (registered on a lattice of spacing 2) and
-T = sigma(D(T)). Every vertex block of T is one of the 27 windows of sigma(b) for a vertex block b of
-D(T). Hence A is contained in Adm and in Win(sigma(A)), so A is contained in the limit of
-X_0 = Adm, X_{k+1} = Adm & Win(sigma(X_k)). If that limit is the legal language, every block of every
-tiling by Q is legal, and every tiling by Q lies in the substitution hull.
+Let A be the set of 2x2x2 vertex blocks that occur in some atlas tiling (registered chairs, all face contacts in
+the 44-atlas). Every atlas tiling T is hierarchical (Kamenetsky, arXiv:2610.00916, Prop. 7.1): its parent tiling
+D(T) is again an atlas tiling (on a lattice of spacing 2) and T = sigma(D(T)). Every vertex block of T is one of
+the 27 windows of sigma(b) for a vertex block b of D(T). Hence A is contained in Adm and in Win(sigma(A)), so A is
+contained in the limit of X_0 = Adm, X_{k+1} = Adm & Win(sigma(X_k)). If that limit is the legal language, every
+block of every atlas tiling is legal, and every atlas tiling lies in the substitution hull. For tilings by the
+solid Q this is conditional on Tsiokos's registration theorem (every tiling by Q is an atlas tiling).
 """
 import itertools
 import json
