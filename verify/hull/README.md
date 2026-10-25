@@ -12,9 +12,12 @@ face-adjacent pair has its relative pose in the 44-contact atlas A44.
   - Only 30 of the 44 contacts ever occur.
 - **Symmetry.** The symmetry group of an atlas tiling is conjugate to exactly one of 1, C2 (about a face-diagonal axis),
   C4 and D4, and each occurs. So |Sym(T)| ≤ 8.
-- **For tilings by the solid Q**, both statements are **conditional on Tsiokos's registration theorem** (Thm 5.6,
-  Lemma 5.3): every tiling by Q is, up to an isometry, an atlas tiling. Its written proof has not been independently
-  refereed.
+- **For tilings by the solid Q**, both statements follow from **Tsiokos's registration theorem** (Thm 5.6, Lemma 5.3):
+  every tiling by Q is, up to an isometry, an atlas tiling.
+  - Its proof has been audited independently. Every written step was checked, every finite input recomputed in
+    exact arithmetic, and each of the 5,273 witnesses in `certificates/companion_collision_certificate.json` checked.
+    See [`independent/REGISTRATION_AUDIT.md`](independent/REGISTRATION_AUDIT.md).
+  - It has not been refereed.
 - **Not claimed:** that the space of *all* tilings by Q is minimal (it is the union of the translates gΩ_σ), or that every
   element of Ω_σ is limit-periodic.
 
@@ -61,16 +64,17 @@ Each script ends with `STATUS: PASS` or `FAIL`.
      stabiliser may be larger. That holds for C2(diag) and C4, but not for C2 about a coordinate axis.
    - The patches built by `chair44_symmetry_census.py` are consistency checks. The exclusion of further symmetries rests on
      the argument.
-6. **Independent checks.**
+6. **Independent checks** ([`independent/`](independent/), standard library, reads only this repository's data).
    - An adversarial referee re-derived every number with separately written code, including A44 from the pyramid
-     geometry and from the eight children alone. It also published an O-orbit certificate of the lemma with a
-     stand-alone verifier.
+     geometry and from the eight children alone. It also wrote an O-orbit certificate of the lemma
+     (`lemmaA_orbits.json`) with a stand-alone verifier (`c44lemma_cert.py`).
+   - `registration_audit.py` recomputes the finite inputs of the registration theorem: the mesh, the census
+     6,862 → 5,317, and every collision witness.
    - The lemma depends on the exact atlas: enlarging A44 by the five non-atlas contacts of one violating block gives 24
      failures.
-   - That code is at
-     https://github.com/romanov360/big-bang-monotile/tree/independent-review/research/independent, with the referee report
-     alongside it.
+   - The referee report is [`independent/INDEPENDENT_REVIEW.md`](independent/INDEPENDENT_REVIEW.md). Commands are in
+     [`independent/README.md`](independent/README.md).
    - Brent Hartshorn's `spectre` repository regenerates the tile and its atlas with independent code on the same eight
      children (`symchair44.py`, `chair44_hull_admissible.py`) and gets the same counts.
 
-Paper draft: T. Romanov, *The hull and the symmetry groups of Chair44 tilings* (2026). It is computer-assisted and unrefereed.
+Paper draft: T. Romanov, *The hull and the symmetry groups of Chair44 tilings* (2026). It is computer-assisted and not yet refereed.
